@@ -85,3 +85,32 @@ dotenv-rails gem（環境変数を管理するためのライブラリ）
 
 render（予定）
 PostgreSQL（renderにデプロイした場合）
+
+## 画面遷移図URL
+Figma
+https://www.figma.com/file/PVlwjrliNKCObeCMQ3Qynh/%E7%94%BB%E9%9D%A2%E9%81%B7%E7%A7%BB%E5%9B%B3?type=whiteboard&node-id=0%3A1&t=ULuv7ETX2Jannmti-1
+
+
+### READMEに記載した機能
+- [x] 自動いいね機能
+- [x] いいね解除機能
+- [x] キーワード検索機能
+- [x] ユーザー登録機能（TwitterAPIを使用）
+- [x] Twitterでのログイン機能
+- [x] ブックマーク機能
+- [x] ブックマーク解除機能
+- [x] アカウントに紐づいたブックマークの表示
+- [x] 時間に合わせて画面を切り替える機能
+- [x] お気に入りアカウント登録機能
+- [x] お気に入りアカウント登録削除機能
+- [x] 特定のトリガーで音声が流れる機能
+- [x] Twitter IDに基づいた興味ある分野を分析する機能
+- [x] 自分のTwitterIDから情報を取得する機能（マイページに使用）
+
+### 未ログインでも閲覧または利用できるページ
+- [x] TOPページ
+- [x] 自動いいね機能
+
+
+
+
