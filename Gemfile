@@ -41,6 +41,30 @@ gem "tzinfo-data", platforms: %i[ windows jruby ]
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
 
+# TwitterのOAuth認証のため https://github.com/omniauth/omniauth
+
+gem 'omniauth'
+gem "omniauth-rails_csrf_protection"
+
+#  画像アップロードのため https://github.com/carrierwaveuploader/carrierwave
+
+gem 'carrierwave', '~> 3.0'
+
+# AWS S3との連携のため https://github.com/fog/fog-aws
+gem 'fog-aws'
+
+# アイコンのため https://github.com/FortAwesome/font-awesome-sass
+gem 'font-awesome-sass'
+
+#  画像処理のため https://github.com/minimagick/minimagick
+gem "mini_magick"
+
+# 日本語化のため https://github.com/svenfuchs/rails-i18n
+gem 'rails-i18n', '~> 7.0.0'
+
+# 環境変数を扱うため https://github.com/bkeepers/dotenv
+gem 'dotenv-rails', groups: [:development, :test]
+
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
