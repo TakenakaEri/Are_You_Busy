@@ -112,5 +112,8 @@ https://www.figma.com/file/PVlwjrliNKCObeCMQ3Qynh/%E7%94%BB%E9%9D%A2%E9%81%B7%E7
 - [x] 自動いいね機能
 
 
+### ER図
+https://drive.google.com/file/d/1_ulfhT46uDdKhbegOXHyuuZYWCaQcCLy/view?usp=sharing
+
 
 
