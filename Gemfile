@@ -68,7 +68,6 @@ gem 'dotenv-rails', groups: [:development, :test]
 
 # いいねを押すためのgem 
 
-gem "x", "~> 0.14.1"
 
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
