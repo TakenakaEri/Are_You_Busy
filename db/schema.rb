@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_17_140213) do
+ActiveRecord::Schema[7.1].define(version: 2024_05_17_161748) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -37,13 +37,14 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_17_140213) do
 
   create_table "tweets", force: :cascade do |t|
     t.string "uid"
-    t.string "tweet_id"
+    t.string "twitter_tweet_id"
     t.text "text"
     t.integer "user_id"
     t.integer "tweet_created_at"
     t.integer "retweet_count"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["twitter_tweet_id"], name: "index_tweets_on_twitter_tweet_id", unique: true
   end
 
   create_table "users", force: :cascade do |t|
@@ -61,6 +62,14 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_17_140213) do
     t.datetime "twitter_created_at"
     t.string "oauth_token"
     t.string "oauth_token_secret"
+    t.index ["oauth_token"], name: "index_users_on_oauth_token", unique: true
+    t.index ["uid"], name: "index_users_on_uid", unique: true
   end
 
+  add_foreign_key "bookmarks", "tweets", primary_key: "twitter_tweet_id"
+  add_foreign_key "bookmarks", "users"
+  add_foreign_key "followedaccounts", "users"
+  add_foreign_key "likes", "tweets", primary_key: "twitter_tweet_id"
+  add_foreign_key "likes", "users"
+  add_foreign_key "tweets", "users"
 end
