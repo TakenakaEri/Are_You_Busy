@@ -13,3 +13,41 @@
  *= require_tree .
  *= require_self
  */
+
+
+
+  .container {
+    display: flex;
+  }
+  
+  .menubar{
+    /* position: fixed; */
+    /* top: 5vw; ヘッダーの高さと同じ値に設定 */
+    height: calc(100% - 5vw); /* ヘッダーの高さを除いた高さに設定 */
+    height: 100vw;
+    width: 15vw;
+    background-color: #fad5b2;
+    left: 0;
+    font-size: 16px;
+    /* z-index: 1; */
+  }
+
+ .header{
+    /* position: fixed; */
+    /* top: 0; */
+    /* width: 100%; */
+    background-color: rgb(239, 184, 167);
+    height: 5vw;
+    /* z-index: 1; */
+ }
+
+.footer{
+    background-color: rgb(160, 254, 245);
+    height: 5vw;
+}
+
+.top{
+    background-color: rgb(138, 248, 164);
+    height: 90vw;
+    width: 100vw;
+}
