@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   
   # User関連
-  resources :users, only: [:new, :create]
+  resources :users, only: [:new, :create, :edit, :update]
 
   # セッション関連
   get 'login', to: 'sessions#new'
