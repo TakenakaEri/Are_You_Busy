@@ -19,35 +19,43 @@
   .container {
     display: flex;
   }
-  
-  .menubar{
-    /* position: fixed; */
-    /* top: 5vw; ヘッダーの高さと同じ値に設定 */
-    height: calc(100% - 5vw); /* ヘッダーの高さを除いた高さに設定 */
-    height: 100vw;
-    width: 15vw;
-    background-color: #fad5b2;
-    left: 0;
-    font-size: 16px;
-    /* z-index: 1; */
+
+  .header{
+    position: fixed;
+    padding: 1vh;
+    background-color: rgb(239, 184, 167);
+    height: 5vh;
+    width: 100vh;
+    z-index: 4;
   }
 
- .header{
-    /* position: fixed; */
-    /* top: 0; */
-    /* width: 100%; */
-    background-color: rgb(239, 184, 167);
-    height: 5vw;
-    /* z-index: 1; */
- }
+  .menubar{
+    /* メニューバーの固定 */
+    position: fixed;
+    margin-top: 5vh ;
+    padding: 5vh 1vh 5vh 1vh ;
+    height: calc(100vh - 5vh);
+    width: 15vw;
+    background-color: #fad5b2;
+    z-index: 1;
+  }
 
-.footer{
-    background-color: rgb(160, 254, 245);
-    height: 5vw;
-}
-
-.top{
+  .main{
+    position: relative; /* フッターをコンテンツ内に配置するため */
     background-color: rgb(138, 248, 164);
-    height: 90vw;
-    width: 100vw;
-}
+    margin: 5vh 0 0 15vw;
+    padding: 5vh 5vh 5vh 5vh ;
+    /* ヘッダーの高さを除いた高さに設定 */
+    height: calc(100vh - 5vh);
+    width: 85vw;
+    overflow-y: auto; /* 縦方向にスクロール可能に設定 */
+  }
+
+  .footer{
+    position: relative;
+    padding: 1vh;
+    background-color: rgb(160, 254, 245);
+    height: 5vh;
+    z-index: 2;
+  }
+
