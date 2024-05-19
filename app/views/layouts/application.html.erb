@@ -8,30 +8,19 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
-    <link rel="stylesheet" href="css/ress.css"> 
+    <link rel="stylesheet" href="css/ress.css">
   </head>
 
   <body>
-    <div  class="header">
-      <%= render 'shared/header' %> 
-    </div>
-
+    <%= render 'shared/header' %>
     <div class="container">
-      <div>
-        <div  class="menubar">
-          <%= render 'shared/menubar'%>
-        </div>
-
-        <div class="main">
-          <%= yield %>
-        </div>
-
-        <div class="footer">
-          <%= render 'shared/footer' %>
-        </div>
+      <div  class="menubar">
+        <%= render 'shared/menubar'%>
+      </div>
+      <div class="main">
+        <%= yield %>
       </div>
     </div>
-
+      <%= render 'shared/footer' %>
   </body>
-
 </html>
