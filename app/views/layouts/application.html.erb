@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AreYouBusy</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+    <link rel="stylesheet" href="css/ress.css">
+  </head>
+
+  <body>
+    <%= render 'shared/header' %>
+    <div class="container">
+      <div  class="menubar">
+        <%= render 'shared/menubar'%>
+      </div>
+      <div class="main">
+        <!--deviceのフラッシュメッセージ-->
+        <p class = "notice"> <%= notice %> </p>
+        <p class = "alert"> <%= alert %> </p>
+        <%= yield %>
+      </div>
+    </div>
+      <%= render 'shared/footer' %>
+  </body>
+</html>
