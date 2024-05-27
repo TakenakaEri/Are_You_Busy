@@ -20,90 +20,42 @@
     display: flex;
   }
 
-  li {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-  }
-
-  /* ヘッダー */
-  header{
+  .header{
     position: fixed;
-    display: flex;
-    align-items: center;
-    padding: 0 3vh 0 3vh;
+    padding: 1vh;
     background-color: rgb(239, 184, 167);
-    height: 10vh;
-    width: 100vw;
+    height: 5vh;
+    width: 100vh;
     z-index: 4;
   }
 
-  .space-between{
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-  }
-
-  .logo {
-    align-self: center;
-  }
-  
-  .login-link {
-    align-self: center;
-  }
-
-
-
-  /* メニューバー */
   .menubar{
     /* メニューバーの固定 */
     position: fixed;
-    margin: 10vh 0 0 0;
-    padding: 5vh 3vh 5vh 3vh ;
-    height: calc(100vh - 10vh);
+    margin-top: 5vh ;
+    padding: 5vh 1vh 5vh 1vh ;
+    height: calc(100vh - 5vh);
     width: 15vw;
     background-color: #fad5b2;
     z-index: 1;
   }
 
-  .menu-list{
-    display: flex;
-    flex-direction: column;
-  }
-
-  .li-margin-top{
-    margin-top: 3vh;
-  }
-
-  /* メインセクション */
   .main{
     position: relative; /* フッターをコンテンツ内に配置するため */
     background-color: rgb(138, 248, 164);
-    margin: 10vh 0 0 15vw;
-    padding: 5vh ;
+    margin: 5vh 0 0 15vw;
+    padding: 5vh 5vh 5vh 5vh ;
     /* ヘッダーの高さを除いた高さに設定 */
-    height: calc(100vh - 10vh);
+    height: calc(100vh - 5vh);
     width: 85vw;
     overflow-y: auto; /* 縦方向にスクロール可能に設定 */
   }
 
-  /* フッター */
-  footer{
-    display: flex;
-    align-items: center;
+  .footer{
     position: relative;
-    padding: 0 3vh 0 3vh;
+    padding: 1vh;
     background-color: rgb(160, 254, 245);
-    height: 10vh;
+    height: 5vh;
     z-index: 2;
   }
 
-  .footer-list{
-    display: flex;
-    justify-content: end;
-    width: 100%;
-  }
-
-  .li-margin-left{
-    margin-left: 3vh;
-  }
