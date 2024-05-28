@@ -100,5 +100,9 @@ group :test do
   gem "selenium-webdriver"
 end
 
-
+# # 本番環境にPostgreSQLを使用する
+# group :production do
+#   # Use PstgreSQL as the database for Active Record
+#   gem 'pg'
+# end
 
