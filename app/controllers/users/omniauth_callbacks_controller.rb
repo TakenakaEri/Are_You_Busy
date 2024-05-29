@@ -1,5 +1,5 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
- 
+
   def twitter
     # Twitterからの認証データを元に、ユーザーをデータベースから検索または新規作成
     @user = User.find_for_oauth(request.env['omniauth.auth'])
@@ -12,7 +12,4 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
         redirect_to root_path, alert: "ユーザーデータの取り扱いに失敗しました"
     end
   end
-
-
-
 end
