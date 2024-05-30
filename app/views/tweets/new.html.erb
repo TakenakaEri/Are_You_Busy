@@ -1,2 +1,22 @@
 <h1>Tweets#new</h1>
 <p>Find me in app/views/tweets/new.html.erb</p>
+
+
+<h1>ツイート取得</h1>
+
+<%= form_with url: new_tweet_path, method: :get do |form| %>
+  <div>
+    <%= form.label :username, 'ユーザー名' %>
+    <%= form.text_field :username %>
+  </div>
+  <%= form.submit '取得' %>
+<% end %>
+
+<% if @tweets.present? %>
+  <h2>最新のツイート</h2>
+  <ul>
+    <% @tweets.each do |tweet| %>
+      <li><%= tweet.text %></li>
+    <% end %>
+  </ul>
+<% end %>

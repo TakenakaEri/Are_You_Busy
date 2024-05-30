@@ -1,2 +1,24 @@
+
+<!--
+http://localhost:3000/tweets
+-->
 <h1>Tweets#index</h1>
 <p>Find me in app/views/tweets/index.html.erb</p>
+
+
+<h1>Twitter Timeline</h1>
+
+<%= form_tag tweets_path, method: :get do %>
+  <%= label_tag :username, 'Twitter Username' %>
+  <%= text_field_tag :username %>
+  <%= submit_tag 'Get Tweets' %>
+<% end %>
+
+<% if @tweets.present? %>
+  <h2>Latest Tweets</h2>
+  <ul>
+    <% @tweets.each do |tweet| %>
+      <li><%= tweet['text'] %> - <%= tweet['created_at'] %></li>
+    <% end %>
+  </ul>
+<% end %>

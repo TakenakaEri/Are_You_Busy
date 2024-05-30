@@ -26,6 +26,14 @@ gem "stimulus-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
+gem 'addressable'
+
+# https://github.com/rest-client/rest-client
+gem 'rest-client'
+
+# https://github.com/typhoeus/typhoeus
+gem 'typhoeus'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
 
@@ -74,6 +82,12 @@ gem 'dotenv-rails', groups: [:development, :test]
 # いいねを押すためのgem
 gem "x", "~> 0.14.1"
 
+gem 'twitter'
+# https://github.com/jnunemaker/httparty
+gem 'httparty', '>= 0.16.2'
+
+# https://github.com/flori/json
+# gem 'json', '>= 2.3.0'
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
