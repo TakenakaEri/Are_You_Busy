@@ -1,55 +1,24 @@
 
 <div>
+    <!-- 
     <h1>Staticpages#top</h1>
-    <p>topページテスト</p>
-    <p>topページテスト</p>
-    <p>topページテスト</p>
-    <p>topページテスト</p>
-    <p>topページテスト</p>
-    <p>topページテスト</p>
-    <p>topページテスト</p>
-    <p>topページテスト</p>
-    <p>topページテスト</p>
-    <p>topページテスト</p>
-    <p>topページテスト</p>
-    <p>topページテスト</p>
-    <p>topページテスト</p>
-    <p>topページテスト</p>
-    <p>topページテスト</p>
-    <p>topページテスト</p>
-    <p>topページテスト</p>
-    <p>topページテスト</p>
-    <p>topページテスト</p>
-    <p>topページテスト</p>
-    <p>topページテスト</p>
-    <p>topページテスト</p>
-    <p>topページテスト</p>
-    <p>topページテスト</p>
-    <p>topページテスト</p>
-    <p>topページテスト</p>
-    <p>topページテスト</p>
-    <p>topページテスト</p>
-    <p>topページテスト</p>
-    <p>topページテスト</p>
-    <p>topページテスト</p>
-    <p>topページテスト</p>
-    <p>topページテスト</p>
-    <p>topページテスト</p>
-    <p>topページテスト</p>
-    <p>topページテスト</p>
-    <p>topページテスト</p>
-    <p>topページテスト</p>
-    <p>topページテスト</p>
-    <p>topページテスト</p>
-    <p>topページテスト</p>
-    <p>topページテスト</p>
-    <p>topページテスト</p>
-    <p>topページテスト</p>
-    <p>topページテスト</p>
-    <p>topページテスト</p>
-    <p>topページテスト</p>
-    <p>topページテスト</p>
+    -->
+    <h1>ユーザーIDの確認フォーム</h1>
+    <%= form_with(url: '/staticpages/get_user_id', method: :get, local: true) do |form| %>
+        <p>usernameの欄にTwitterの@マーク以降の文字列を入力してください</p>
+        <%= form.label :username, "Twitter Username" %>
+        
+        <%= form.text_field :username %>
 
+        <%= form.submit "Get User ID" %>
+    <% end %>
 
+  <% if @error_message.present? %>
+    <p><%= @error_message %></p>
+  <% elsif @user_id.nil? %>
+    <!-- 初回の訪問時には何も表示しない -->
+  <% else %>
+    <p>取得したTwitterのユーザーIDは <%= @user_id %> です。</p>
+  <% end %>
 
 </div>

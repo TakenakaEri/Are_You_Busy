@@ -4,20 +4,25 @@ Rails.application.routes.draw do
       # Twitter API認証用
       omniauth_callbacks: 'users/omniauth_callbacks'
     }
+
   # rootをTOPページへ遷移
   root 'staticpages#top'
+  # ユーザーIDを返すためのルーティング
+  get '/staticpages/get_user_id', to: 'staticpages#get_user_id', as: 'get_user_id'
 
+  # ツイートの取得遷移
+  get 'tweets/new'
   # User関連
-  resources :users, only: [:new, :create, :edit, :update]
+  resources :users, only: [:new, :create, :edit, :update, :show]
 
   # セッション関連
-  get 'login', to: 'sessions#new'
-  delete 'logout', to: 'devise/sessions#destroy'
-  get 'auth/:provider/callback', to: 'sessions#create'
-  get 'auth/failure', to: redirect('/')
+  # get 'login', to: 'sessions#new'
+  # delete 'logout', to: 'devise/sessions#destroy'
+  # get 'auth/:provider/callback', to: 'sessions#create'
+  # get 'auth/failure', to: redirect('/')
 
   # ツイート関連
-  resources :tweets, only: [:create, :destroy]
+  resources :tweets, only: [:index, :new, :create, :destroy]
 
   # ブックマーク関連
   resources :bookmarks, only: [:create, :destroy]
