@@ -1,24 +1,35 @@
 
 <div>
-    <!-- 
+<!--
     <h1>Staticpages#top</h1>
-    -->
+-->
+
     <h1>ユーザーIDの確認フォーム</h1>
     <%= form_with(url: '/staticpages/get_user_id', method: :get, local: true) do |form| %>
         <p>usernameの欄にTwitterの@マーク以降の文字列を入力してください</p>
         <%= form.label :username, "Twitter Username" %>
-        
         <%= form.text_field :username %>
-
         <%= form.submit "Get User ID" %>
     <% end %>
 
+ <!--ユーザーIDの取得 -->
   <% if @error_message.present? %>
     <p><%= @error_message %></p>
   <% elsif @user_id.nil? %>
-    <!-- 初回の訪問時には何も表示しない -->
+    <p>ユーザーIDを取得してください。</p>
   <% else %>
     <p>取得したTwitterのユーザーIDは <%= @user_id %> です。</p>
   <% end %>
 
+  <!-- ツイートの表示 -->
+<% if @tweets.present? %>
+  <h2>このユーザーの最新の10件のツイート</h2>
+  <ul class="tweet-lines">
+    <% @tweets.each do |tweet| %>
+       <li><%= tweet["text"] %>
+    <% end %>
+  </ul>
+<% end %>
+
 </div>
+

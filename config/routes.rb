@@ -7,8 +7,10 @@ Rails.application.routes.draw do
 
   # rootをTOPページへ遷移
   root 'staticpages#top'
+
   # ユーザーIDを返すためのルーティング
   get '/staticpages/get_user_id', to: 'staticpages#get_user_id', as: 'get_user_id'
+  # get '/staticpages/get_user_tweets', to: 'staticpages#get_user_tweets', as: 'get_user_tweets'
 
   # ツイートの取得遷移
   get 'tweets/new'

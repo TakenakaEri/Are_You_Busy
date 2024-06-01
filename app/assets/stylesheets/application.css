@@ -15,6 +15,9 @@
  */
 
 
+  h1, h2 {
+    margin-bottom: 0.5em;
+  }
 
   .container {
     display: flex;
@@ -52,8 +55,6 @@
     align-self: center;
   }
 
-
-
   /* メニューバー */
   .menubar{
     /* メニューバーの固定 */
@@ -87,6 +88,10 @@
     overflow-y: auto; /* 縦方向にスクロール可能に設定 */
   }
 
+  .tweet-lines li{
+    margin-bottom: 1em;
+  }
+
   /* フッター */
   footer{
     display: flex;
@@ -107,3 +112,5 @@
   .li-margin-left{
     margin-left: 3vh;
   }
+
+
