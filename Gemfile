@@ -53,13 +53,15 @@ gem "bootsnap", require: false
 gem 'devise'
 
 # TwitterのOAuth認証のため https://github.com/omniauth/omniauth
-gem 'omniauth', '1.9.1'
+gem 'omniauth'
+gem 'omniauth-twitter2'
 
 # CSRF トークン検証のため https://github.com/cookpad/omniauth-rails_csrf_protection
 gem "omniauth-rails_csrf_protection"
 
-# OmniAuthとTwitterを繋げるもの https://github.com/arunagw/omniauth-twitter
+# Twitter認証用 https://github.com/arunagw/omniauth-twitter
 gem 'omniauth-twitter'
+gem 'omniauth-twitter2'
 
 #  画像アップロードのため https://github.com/carrierwaveuploader/carrierwave
 gem 'carrierwave', '~> 3.0'
@@ -81,8 +83,8 @@ gem 'dotenv-rails', groups: [:development, :test]
 
 # いいねを押すためのgem
 gem "x", "~> 0.14.1"
-
 gem 'twitter'
+
 # https://github.com/jnunemaker/httparty
 gem 'httparty', '>= 0.16.2'
 

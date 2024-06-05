@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   devise_for :users, controllers:
     {
       # Twitter API認証用
-      omniauth_callbacks: 'users/omniauth_callbacks'
+      omniauth_callbacks: 'users/omniauth_callbacks',
+      sessions: 'users/sessions',
+      registrations: 'users/registrations'
     }
 
   # rootをTOPページへ遷移
@@ -16,6 +18,8 @@ Rails.application.routes.draw do
   get 'tweets/new'
   # User関連
   resources :users, only: [:new, :create, :edit, :update, :show]
+
+
 
   # セッション関連
   # get 'login', to: 'sessions#new'
