@@ -1,4 +1,4 @@
 class Bookmark < ApplicationRecord
     belongs_to :user
-    belongs_to :tweet, foreign_key: 'twitter_tweet_id', primary_key: 'twitter_tweet_id'
+    belongs_to :tweet
 end
