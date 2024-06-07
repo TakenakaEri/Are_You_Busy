@@ -6,8 +6,6 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
-
-
   # GET /users/new
   def new
     @user = User.new

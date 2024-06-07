@@ -1,9 +1,6 @@
 
 <div>
-<!--
-    <h1>Staticpages#top</h1>
--->
-
+<!--    <h1>Staticpages#top</h1> -->
     <h1>ユーザーIDの確認フォーム</h1>
     <%= form_with(url: '/staticpages/get_user_id', method: :get, local: true) do |form| %>
         <p>usernameの欄にTwitterの@マーク以降の文字列を入力してください</p>
@@ -22,14 +19,29 @@
   <% end %>
 
   <!-- ツイートの表示 -->
-<% if @tweets.present? %>
-  <h2>このユーザーの最新の10件のツイート</h2>
-  <ul class="tweet-lines">
-    <% @tweets.each do |tweet| %>
-       <li><%= tweet["text"] %>
-    <% end %>
-  </ul>
-<% end %>
+  <% if @tweets.present? %>
+    <h2>このユーザーの最新の10件のツイート</h2>
+    <ul class="tweet-lines">
+      <% @tweets.each do |tweet| %>
+        <li><%= tweet["text"] %><br>
+        <%# tweet_obj = Tweet.find_by(twitter_tweet_id: tweet["id"]) %>
+          <%# tweet_obj = Tweet.find_by(twitter_tweet_id: tweet["id"].to_s) %>
+          <% tweet_obj = Tweet.find_by(twitter_tweet_id: tweet["twitter_tweet_id"]) %>
+          <!--tweet_objにデータが存在する場合-->
+          <% if tweet_obj.present? %>
+          <!-- current_userのlikes関連付けを通じて、tweet_idがtweet_obj.idと一致する「いいね」が存在するかどうかをデータベースに問い合わせています。-->
+            <% if current_user.likes.exists?(tweet_id: tweet_obj.id) %>
+              <%= button_to 'いいね解除', unlike_tweet_path(tweet_id: tweet_obj.twitter_tweet_id), method: :delete, data: { confirm: 'このツイートのいいねを解除しますか？' } %>
+            <% else %>
+              <%= button_to 'いいね', like_tweet_path(tweet_id: tweet_obj.twitter_tweet_id), method: :post %>
+            <% end %>
+          <% else %>
+            <p>このツイートはまだ保存されていません。</p>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
 
 </div>
 

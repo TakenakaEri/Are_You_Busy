@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_05_103512) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_07_012926) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -75,10 +75,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_05_103512) do
     t.index ["uid"], name: "index_users_on_uid", unique: true
   end
 
-  add_foreign_key "bookmarks", "tweets", primary_key: "twitter_tweet_id"
   add_foreign_key "bookmarks", "users"
   add_foreign_key "followedaccounts", "users"
-  add_foreign_key "likes", "tweets", primary_key: "twitter_tweet_id"
   add_foreign_key "likes", "users"
   add_foreign_key "likes", "users", primary_key: "uid"
   add_foreign_key "tweets", "users"

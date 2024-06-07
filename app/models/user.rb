@@ -5,8 +5,8 @@ class User < ApplicationRecord
   has_many :bookmarks
   has_many :likes, dependent: :destroy
   has_many :followed_accounts
-  validates :uid, presence: true, uniqueness: true
 
+  validates :uid, presence: true, uniqueness: true
 
     devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :validatable,
@@ -61,5 +61,4 @@ class User < ApplicationRecord
         )
         oauth_token
       end
-
 end
