@@ -1,57 +1,63 @@
 class StaticpagesController < ApplicationController
-  
   # ユーザーIDを返すメソッド
   def get_user_id
-      # フォームから入力されたユーザー名を取得
-      username = params[:username]
-      bearer_token = ENV['BEARER_TOKEN'] # ここにBearerトークンを入力
-      # user_idの取得
-      url = "https://api.twitter.com/2/users/by/username/#{username}"
+    # フォームから入力されたユーザー名を取得
+    username = params[:username]
+    bearer_token = ENV['BEARER_TOKEN'] # ここにBearerトークンを入力
 
-      headers = {
-        "Authorization": "Bearer #{bearer_token}",
-        "Content-Type": "application/json"
-      }
+    # user_idの取得
+    url = "https://api.twitter.com/2/users/by/username/#{username}"
 
-      begin
-          response = RestClient.get(url, headers)
-          user_data = JSON.parse(response.body)
-          @user_id = user_data["data"]["id"]
-          puts "user_id: #{@user_id}"
-          #json形式で返ってくる設定コード
-          # render json: { user_id: @user_id }
+    headers = {
+      "Authorization": "Bearer #{bearer_token}",
+      "Content-Type": "application/json"
+    }
 
-          # ユーザーの最新の10件のツイートを取得
-          tweets_url = "https://api.twitter.com/2/users/#{@user_id}/tweets"
-          tweets_response = RestClient.get(tweets_url, headers)
-          tweets_data = JSON.parse(tweets_response.body)
-          @tweets = tweets_data["data"]
+    begin
+      # ユーザーネームからユーザーIDを取得
+      response = RestClient.get(url, headers)
+      user_data = JSON.parse(response.body)
+      @user_id = user_data["data"]["id"]
+      puts "user_id: #{@user_id}"
 
-          if @tweets.present?
-            puts "Tweets data:"
-            puts @tweets.inspect
-          else
-            puts "No tweets data available"
-          end
+      user = User.find_or_initialize_by(uid: @user_id)
+      # user.update(uid: @user_id)
 
-        rescue RestClient::ExceptionWithResponse => e
-          puts e.message
-          # render json: { error: e.response.body }, status: e.response.code
-          @error_message = e.response.body
-        end
-          # リダイレクト前に@user_idをセッションに保存
-          session[:user_id] = @user_id
-          # session[:tweets] = @tweets
+      # ユーザーの最新の10件のツイートを取得
+      tweets_url = "https://api.twitter.com/2/users/#{@user_id}/tweets"
+      tweets_response = RestClient.get(tweets_url, headers)
+      tweets_data = JSON.parse(tweets_response.body)
 
-          # redirect_to root_path
-          render 'top'
+      @tweets = []
+      tweets_data["data"].each do |tweet_data|
+        tweet = Tweet.find_or_initialize_by(twitter_tweet_id: tweet_data["id"])
+        tweet.update(
+          twitter_tweet_id: tweet_data["id"],
+          text: tweet_data["text"],
+          user: user
+        )
+        @tweets << tweet
       end
 
-      def top
-        # セッションから@user_idを取得、なければ初期値にnil
-        # @user_id = session[:user_id]
-        # @tweets = session[:tweets]
-          # @error_messageはfalse(初期化)
-        # @error_message = false
-      end
+      # ツイートが保存できているか確認
+      puts "保存したツイート:"
+      @tweets.each { |tweet| puts "Tweet: #{tweet.inspect}" }
+
+      # ツイートIDを取得
+      @tweet_ids = @tweets.map(&:twitter_tweet_id)
+
+    rescue RestClient::ExceptionWithResponse => e
+      puts e.message
+      @error_message = e.response.body
     end
+
+    # リダイレクト前に@user_idをセッションに保存
+    session[:user_id] = @user_id
+
+    render 'top'
+  end
+
+  def top
+    @tweets = Tweet.includes(:user).order("created_at desc")
+  end
+end

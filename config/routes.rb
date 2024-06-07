@@ -3,8 +3,6 @@ Rails.application.routes.draw do
     {
       # Twitter API認証用
       omniauth_callbacks: 'users/omniauth_callbacks',
-      sessions: 'users/sessions',
-      registrations: 'users/registrations'
     }
 
   # rootをTOPページへ遷移
@@ -19,14 +17,6 @@ Rails.application.routes.draw do
   # User関連
   resources :users, only: [:new, :create, :edit, :update, :show]
 
-
-
-  # セッション関連
-  # get 'login', to: 'sessions#new'
-  # delete 'logout', to: 'devise/sessions#destroy'
-  # get 'auth/:provider/callback', to: 'sessions#create'
-  # get 'auth/failure', to: redirect('/')
-
   # ツイート関連
   resources :tweets, only: [:index, :new, :create, :destroy]
 
@@ -34,7 +24,9 @@ Rails.application.routes.draw do
   resources :bookmarks, only: [:create, :destroy]
 
   # いいね関連
-  resources :likes, only: [:create, :destroy]
+  # resources :likes, only: [:create, :destroy]
+  post '/tweets/:tweet_id/like', to: 'likes#create', as: 'like_tweet'
+  delete '/tweets/:tweet_id/like', to: 'likes#destroy', as: 'unlike_tweet'
 
   # フォロー関連
   resources :followed_accounts, only: [:create, :destroy]
