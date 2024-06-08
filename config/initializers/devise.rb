@@ -312,6 +312,6 @@ Devise.setup do |config|
   # config.sign_in_after_change_password = true
 
   # Twitter認証
-  config.omniauth :twitter2, ENV['API_KEY'], ENV['API_SECRET'], scope: 'tweet.read tweet.write users.read', oauth_callback: "#{ENV['DOMAIN_NAME']}/users/auth/twitter2/callback"
+  config.omniauth :twitter2, ENV['API_KEY'], ENV['API_SECRET'], scope: 'tweet.read tweet.write users.read offline.access like.write', oauth_callback: "#{ENV['DOMAIN_NAME']}/users/auth/twitter2/callback"
   OmniAuth.config.logger = Rails.logger if Rails.env.development? # debug用
 end

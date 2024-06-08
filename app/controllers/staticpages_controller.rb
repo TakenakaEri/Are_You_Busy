@@ -18,7 +18,6 @@ class StaticpagesController < ApplicationController
       response = RestClient.get(url, headers)
       user_data = JSON.parse(response.body)
       @user_id = user_data["data"]["id"]
-      puts "user_id: #{@user_id}"
 
       user = User.find_or_initialize_by(uid: @user_id)
       # user.update(uid: @user_id)
@@ -38,10 +37,6 @@ class StaticpagesController < ApplicationController
         )
         @tweets << tweet
       end
-
-      # ツイートが保存できているか確認
-      puts "保存したツイート:"
-      @tweets.each { |tweet| puts "Tweet: #{tweet.inspect}" }
 
       # ツイートIDを取得
       @tweet_ids = @tweets.map(&:twitter_tweet_id)

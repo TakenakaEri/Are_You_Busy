@@ -1,7 +1,6 @@
 <header>
     <ul class="space-between">
         <li class="logo"><p>ロゴを配置</p></li>
-        <li class="login-link"><p>ログイン</p></li>
 
         <% if user_signed_in? %>
             <li>
@@ -9,18 +8,11 @@
                 <%= link_to "ログアウト", destroy_user_session_path, data: { turbo_method: :delete }  %>
             </li>
         <% else %>
-        <!--
-            <li>
-                <%= button_to "新規登録", new_user_registration_path, data: { turbo: false }  %>
-            </li>
-                <%= link_to "ログイン", new_user_session_path %>
-            -->
              <li>
                 <%= button_to "ログイン", user_twitter2_omniauth_authorize_path, data: { turbo: false } %>
             </li>
         <% end %>
     </ul>
-
 </header>
 
 
