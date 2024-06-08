@@ -54,7 +54,6 @@ gem 'devise'
 
 # TwitterのOAuth認証のため https://github.com/omniauth/omniauth
 gem 'omniauth'
-gem 'omniauth-twitter2'
 
 # CSRF トークン検証のため https://github.com/cookpad/omniauth-rails_csrf_protection
 gem "omniauth-rails_csrf_protection"
@@ -87,6 +86,9 @@ gem 'twitter'
 
 # https://github.com/jnunemaker/httparty
 gem 'httparty', '>= 0.16.2'
+
+# デバッグ用のgem
+gem 'pry-byebug'
 
 # https://github.com/flori/json
 # gem 'json', '>= 2.3.0'
