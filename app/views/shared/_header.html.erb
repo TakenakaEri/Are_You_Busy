@@ -4,16 +4,20 @@
 
         <% if user_signed_in? %>
             <li>
-           <!-- destroy_user_session_path は devise のルーティングで定義されている -->
+            <!-- destroy_user_session_path は devise のルーティングで定義されている -->
                 <%= link_to "ログアウト", destroy_user_session_path, data: { turbo_method: :delete }  %>
             </li>
         <% else %>
-             <li>
-                <%= button_to "ログイン", user_twitter2_omniauth_authorize_path, data: { turbo: false } %>
+            <li>
+
+                <%= button_to "ログイン", user_twitter_omniauth_authorize_path, data: { turbo: false } %>
             </li>
         <% end %>
     </ul>
 </header>
+
+
+
 
 
 

@@ -11,7 +11,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :validatable,
   # Twitter API認証用に追加
-  :omniauthable, omniauth_providers: [:twitter2]
+  :omniauthable, omniauth_providers: [:twitter]
 
   # Twitter認証ログイン用
   # providerとuidをキーにユーザーを検索し、存在しない場合は新しいユーザーを作成。ユーザーのメールアドレス、パスワード、名前、OAuthトークン、リフレッシュトークン、有効期限を設定

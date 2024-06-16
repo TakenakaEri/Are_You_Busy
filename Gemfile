@@ -60,7 +60,6 @@ gem "omniauth-rails_csrf_protection"
 
 # Twitter認証用 https://github.com/arunagw/omniauth-twitter
 gem 'omniauth-twitter'
-gem 'omniauth-twitter2'
 
 #  画像アップロードのため https://github.com/carrierwaveuploader/carrierwave
 gem 'carrierwave', '~> 3.0'
@@ -117,6 +116,7 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
 
 
 

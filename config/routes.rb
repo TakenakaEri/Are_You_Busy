@@ -25,6 +25,7 @@ Rails.application.routes.draw do
 
   # いいね関連
   # resources :likes, only: [:create, :destroy]
+  post '/likes/create_multiple', to: 'likes#create_multiple', as: 'likes_create_multiple'
   post '/tweets/:tweet_id/like', to: 'likes#create', as: 'like_tweet'
   delete '/tweets/:tweet_id/like', to: 'likes#destroy', as: 'unlike_tweet'
 
