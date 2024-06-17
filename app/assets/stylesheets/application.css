@@ -29,16 +29,25 @@
     padding: 0;
   }
 
+  a {
+    text-decoration: none;
+  }
+
   /* ヘッダー */
   header{
     position: fixed;
     display: flex;
     align-items: center;
     padding: 0 3vh 0 3vh;
-    background-color: rgb(239, 184, 167);
+    background-color: #1DA1F2; /* Twitter's brand color */
     height: 10vh;
     width: 100vw;
     z-index: 4;
+    color: white;
+  }
+
+  header a {
+    color: white;
   }
 
   .space-between{
@@ -55,6 +64,10 @@
     align-self: center;
   }
 
+  .instruction {
+    margin-bottom: 3vh;
+  }
+
   /* メニューバー */
   .menubar{
     /* メニューバーの固定 */
@@ -63,7 +76,7 @@
     padding: 5vh 3vh 5vh 3vh ;
     height: calc(100vh - 10vh);
     width: 15vw;
-    background-color: #fad5b2;
+    background-color: white;
     z-index: 1;
   }
 
@@ -79,7 +92,7 @@
   /* メインセクション */
   .main{
     position: relative; /* フッターをコンテンツ内に配置するため */
-    background-color: rgb(138, 248, 164);
+    background-color: white;
     margin: 10vh 0 0 15vw;
     padding: 5vh ;
     /* ヘッダーの高さを除いた高さに設定 */
@@ -92,13 +105,43 @@
     margin-bottom: 1em;
   }
 
+  .input-border {
+    border: 1px solid #000;
+    background-color: rgb(247, 247, 248);
+  }
+
+  .submit-button {
+    background-color: #1DA1F2; /* Twitter's brand color */
+    border: none;
+    color: white;
+    padding: 10px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 25px;
+    transition-duration: 0.4s; /* transition effect */
+    cursor: pointer;
+  }
+  
+  .submit-button:hover {
+    background-color: #0e7ac4; /* Darker blue */
+    color: white;
+  }
+
+  .input-border::placeholder {
+    color: gray;
+  }
+
   /* フッター */
   footer{
     display: flex;
     align-items: center;
     position: relative;
     padding: 0 3vh 0 3vh;
-    background-color: rgb(160, 254, 245);
+    background-color: #1DA1F2; /* Twitter's brand color */
+    color: white;
     height: 10vh;
     z-index: 2;
   }
