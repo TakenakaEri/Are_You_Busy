@@ -2,8 +2,9 @@
 <!--  <h1>Staticpages#top</h1> -->
     <h1>ユーザーIDの確認フォーム</h1>
     <%= form_with(url: '/staticpages/get_user_id', method: :get, local: true) do |form| %>
-        <p class="instruction">指定したユーザーの最新のツイートを5件取得して、一度にいいねを送ることができます</p>
-        <p class="instruction">Twitterのユーザーネーム（@マーク以降の文字列）を入力してツイートを取得するボタンをクリック！<br>ツイートが取得できたらまとめていいねボタンを押してね</p>
+        <p class="instruction">指定したユーザーの最新のツイートを5件取得して、一度にいいねを送ることができます<br>まずは、右上のログインボタンからTwitterアカウントでログイン</p>
+
+        <p class="instruction">Twitterのユーザーネーム（@マーク以降の文字列）を入力してツイートを取得するボタンをクリック！<br>ツイートが取得できたら"まとめていいね"ボタンを押してね</p>
         <%= form.label :username, "Twitter Username" %>
         <%= form.text_field :username, class: 'input-border', placeholder: "  hisaju01"   %>
         <%= form.submit "ツイートを取得する", class: 'submit-button'  %>
