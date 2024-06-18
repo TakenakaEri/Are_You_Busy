@@ -41,7 +41,7 @@
         </li>
       <% end %>
     </ul>
-    <% if @tweet_ids.present? %>
+    <% if current_user.present? && @tweet_ids.present? %>
       <%= form_with(url: like_multiple_tweets_path, method: :post, local: true) do |form| %>
         <%= form.hidden_field :tweet_ids, value: @tweet_ids.join(' ')%>
         <%= form.submit "まとめていいね", class: 'submit-button' %>
@@ -49,4 +49,3 @@
     <% end %>
   <% end %>
 </div>
-
