@@ -55,4 +55,14 @@ class StaticpagesController < ApplicationController
       @liked_tweet_ids = []
     end
   end
+
+  def after_login
+    if session[:user_id].present? && session[:tweet_ids].present?
+      @user_id = session[:user_id]
+      @tweets = Tweet.where(twitter_tweet_id: session[:tweet_ids]).includes(:user).order("created_at desc")
+      @tweet_ids = session[:tweet_ids]
+      @liked_tweet_ids = session[:liked_tweet_ids] || []
+    end
+    render 'top'
+  end
 end

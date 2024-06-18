@@ -9,16 +9,6 @@
         <%= form.text_field :username, class: 'input-border', placeholder: "  hisaju01"   %>
         <%= form.submit "ツイートを取得する", class: 'submit-button'  %>
     <% end %>
- <!--ユーザーIDの取得 -->
- <!--
-  <% if @error_message.present? %>
-    <p><%= @error_message %></p>
-  <% elsif @user_id.nil? %>
-    <p>ここにツイートが表示されます</p>
-  <% else %>
-    <p>取得したTwitterのユーザーIDは <%= @user_id %> です。</p>
-  <% end %>
-  -->
   <!-- ツイートの表示 -->
   <% if @tweets.present? %>
     <h2 class="li-margin-top">このユーザーの最新の5件のツイート</h2>
