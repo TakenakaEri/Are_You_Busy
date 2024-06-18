@@ -30,6 +30,9 @@ Rails.application.routes.draw do
   post '/tweets/:tweet_id/like', to: 'likes#create', as: 'like_tweet'
   delete '/tweets/:tweet_id/like', to: 'likes#destroy', as: 'unlike_tweet'
 
+    # ログイン後の遷移
+  get '/staticpages/after_login', to: 'staticpages#after_login'
+  
   # フォロー関連
   resources :followed_accounts, only: [:create, :destroy]
 

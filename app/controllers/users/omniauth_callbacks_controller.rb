@@ -5,8 +5,9 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     puts "リフレッシュトークン: #{request.env["omniauth.auth"].credentials.refresh_token}"
 
     if @user
-      sign_in_and_redirect @user, event: :authentication
+      sign_in @user, event: :authentication
       set_flash_message(:notice, :success, kind: "Twitter") if is_navigational_format?
+      redirect_to staticpages_after_login_path
     else
       # request.env["omniauth.auth"]ユーザー情報を取得
       session["devise.twitter2_data"] = request.env["omniauth.auth"].except(:extra)
